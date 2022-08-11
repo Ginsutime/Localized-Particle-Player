@@ -232,14 +232,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleList:
-  - description: 
-    particles: {fileID: 0}
+  - label: 0. Enter Label Here
+    particleSystem: {fileID: 0}
     playOnAwake: 0
-  - description: 
-    particles: {fileID: 0}
-    playOnAwake: 0
-  - description: 
-    particles: {fileID: 0}
+  - label: 1. Enter Label Here
+    particleSystem: {fileID: 0}
     playOnAwake: 0
 --- !u!1 &705507993
 GameObject:

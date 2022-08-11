@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class Particle
 {
-    [SerializeField] string description = "Enter Description Here";
+    public string label = "Enter Label Here";
 
     [Space(10)]
-    public ParticleSystem particles;
+    public ParticleSystem particleSystem;
     public bool playOnAwake;
 }
