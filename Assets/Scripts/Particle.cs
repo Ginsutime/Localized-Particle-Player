@@ -9,5 +9,6 @@ public class Particle
 
     [Space(10)]
     public ParticleSystem particleSystem;
+    [Space(7)]
     public bool playOnAwake;
 }

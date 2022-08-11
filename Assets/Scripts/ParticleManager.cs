@@ -30,6 +30,18 @@ public class ParticleManager : MonoBehaviour
     }
 #endif
 
+    void Awake()
+    {
+        foreach (Particle particle in particleList)
+        {
+            if (particle.particleSystem != null)
+            {
+                if (particle.particleSystem.isPlaying && !particle.playOnAwake)
+                    particle.particleSystem.Stop();
+            }
+        }
+    }
+
     void Start()
     {
         ValidateHasParent();
@@ -45,14 +57,20 @@ public class ParticleManager : MonoBehaviour
     void ValidateListNotEmpty()
     {
         if (particleList.Length == 0)
-            Debug.LogWarning(name + " has no particles to play.");
+            Debug.LogWarning(name + " has no particles to play because the list is empty.");
     }
 
-    bool IsListElementNotEmpty(int i)
+    bool IsListElementMissingParticleSystem(int i)
     {
-        if (particleList[i] == null || i > particleList.Length)
+        if (i >= particleList.Length)
         {
-            Debug.LogWarning(name + " attempted to play nonexistant particles in element " + i + ".");
+            Debug.LogWarning(name + " attempted to play particle system in nonexistant (out of range) element " + i + ".");
+            return false;
+        }
+
+        if (particleList[i].particleSystem == null)
+        {
+            Debug.LogWarning(name + " attempted to play nonexistant particle system in element " + i + ".");
             return false;
         }
         else
