@@ -212,12 +212,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132486149}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Children:
+  - {fileID: 2103097784}
+  - {fileID: 655153598}
+  m_Father: {fileID: 2085876934}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &132486154
 MonoBehaviour:
@@ -232,12 +234,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleList:
-  - label: 0. Enter Label Here
-    particleSystem: {fileID: 0}
+  - label: 0. Test1
+    particleSystem: {fileID: 2103097785}
     playOnAwake: 0
-  - label: 1. Enter Label Here
-    particleSystem: {fileID: 0}
-    playOnAwake: 0
+  - label: 1. Test2
+    particleSystem: {fileID: 655153599}
+    playOnAwake: 1
+--- !u!1001 &655153597
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 132486153}
+    m_Modifications:
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707491, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707493, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: m_Name
+      value: Test Particle 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+--- !u!4 &655153598 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8440606664257707488, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+  m_PrefabInstance: {fileID: 655153597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &655153599 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8440606664257707491, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+  m_PrefabInstance: {fileID: 655153597}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,3 +583,148 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2085876933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2085876934}
+  - component: {fileID: 2085876935}
+  m_Layer: 0
+  m_Name: ParticleTesterParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2085876934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085876933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 132486153}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2085876935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085876933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cea2dc3938752d4d8e17d8e51325e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnKeyPress1:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 132486154}
+        m_TargetAssemblyTypeName: ParticleManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnKeyPress2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 132486154}
+        m_TargetAssemblyTypeName: ParticleManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &2103097783
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 132486153}
+    m_Modifications:
+    - target: {fileID: 4796757940443948808, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796757940443948814, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+      propertyPath: m_Name
+      value: Test Particle 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+--- !u!4 &2103097784 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4796757940443948809, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+  m_PrefabInstance: {fileID: 2103097783}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2103097785 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4796757940443948808, guid: c05c673d92ad67f43bebc378fa262b4e, type: 3}
+  m_PrefabInstance: {fileID: 2103097783}
+  m_PrefabAsset: {fileID: 0}

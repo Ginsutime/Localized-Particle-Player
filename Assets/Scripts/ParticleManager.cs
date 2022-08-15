@@ -48,6 +48,13 @@ public class ParticleManager : MonoBehaviour
         ValidateListNotEmpty();
     }
 
+    public void Play(int indexToPlay)
+    {
+        if (!IsListElementMissingParticleSystem(indexToPlay)) return;
+
+        particleList[indexToPlay].particleSystem.Play();
+    }
+
     void ValidateHasParent()
     {
         if (transform.parent == null)
