@@ -66,7 +66,7 @@ public class ParticleManager : MonoBehaviour
 
     public void DetachToPlayThenDestroy(int indexToPlay)
     {
-        if (!IsListElementMissingProperStopAction(indexToPlay)) return;
+        if (!IsListElementMissingDestroyStopAction(indexToPlay)) return;
 
         var main = particleList[indexToPlay].particleSystem.main;
         main.stopAction = ParticleSystemStopAction.Destroy;
@@ -85,6 +85,27 @@ public class ParticleManager : MonoBehaviour
             yield return null;
         
         Destroy(gameObject);
+    }
+
+    public void DetachToPlayThenReattach(int indexToPlay)
+    {
+        if (!IsListElementADestroyStopAction(indexToPlay)) return;
+
+        Transform originParentObj = gameObject.transform.parent;
+        transform.parent = null;
+
+        Play(indexToPlay);
+
+        StopAllCoroutines();
+        StartCoroutine(ReattachWhenDonePlaying(indexToPlay, originParentObj));
+    }
+
+    IEnumerator ReattachWhenDonePlaying(int indexToPlay, Transform originParentObj)
+    {
+        while (particleList[indexToPlay].particleSystem.isPlaying)
+            yield return null;
+
+        transform.parent = originParentObj;
     }
 
     #region Validation/Checks
@@ -117,11 +138,23 @@ public class ParticleManager : MonoBehaviour
             return true;
     }
 
-    bool IsListElementMissingProperStopAction(int i)
+    bool IsListElementMissingDestroyStopAction(int i)
     {
         if (particleList[i].actions != Particle.StopAction.Destroy)
         {
             Debug.LogWarning(name + " needs to have StopAction set to Destroy in " +
+                "order to run this function for element " + i + ".");
+            return false;
+        }
+        else
+            return true;
+    }
+
+    bool IsListElementADestroyStopAction(int i)
+    {
+        if (particleList[i].actions == Particle.StopAction.Destroy)
+        {
+            Debug.LogWarning(name + " needs to have StopAction set to an option other than Destroy in " +
                 "order to run this function for element " + i + ".");
             return false;
         }
