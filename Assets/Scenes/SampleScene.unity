@@ -237,9 +237,11 @@ MonoBehaviour:
   - label: 0. Test1
     particleSystem: {fileID: 2103097785}
     playOnAwake: 0
+    actions: 0
   - label: 1. Test2
     particleSystem: {fileID: 655153599}
-    playOnAwake: 1
+    playOnAwake: 0
+    actions: 2
 --- !u!1001 &655153597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,8 +294,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8440606664257707491, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707491, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440606664257707491, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8440606664257707493, guid: b4ac75f26a9eb8343ab4fdc1412d4bef, type: 3}
       propertyPath: m_Name
@@ -647,7 +657,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 132486154}
         m_TargetAssemblyTypeName: ParticleManager, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: DetachToPlayThenDestroy
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

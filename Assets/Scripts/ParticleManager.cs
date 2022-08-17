@@ -24,6 +24,15 @@ public class ParticleManager : MonoBehaviour
                 {
                     var main = particle.particleSystem.main;
                     main.playOnAwake = particle.playOnAwake;
+
+                    if (particle.actions == Particle.StopAction.None)
+                        main.stopAction = ParticleSystemStopAction.None;
+                    else if (particle.actions == Particle.StopAction.Disable)
+                        main.stopAction = ParticleSystemStopAction.Disable;
+                    else if (particle.actions == Particle.StopAction.Destroy)
+                        main.stopAction = ParticleSystemStopAction.Destroy;
+                    else if (particle.actions == Particle.StopAction.Callback)
+                        main.stopAction = ParticleSystemStopAction.Callback;
                 }
             }
         }
@@ -55,6 +64,30 @@ public class ParticleManager : MonoBehaviour
         particleList[indexToPlay].particleSystem.Play();
     }
 
+    public void DetachToPlayThenDestroy(int indexToPlay)
+    {
+        if (!IsListElementMissingProperStopAction(indexToPlay)) return;
+
+        var main = particleList[indexToPlay].particleSystem.main;
+        main.stopAction = ParticleSystemStopAction.Destroy;
+
+        transform.parent = null;
+
+        Play(indexToPlay);
+
+        StopAllCoroutines();
+        StartCoroutine(DestroyWhenParticleSystemDestroyed(indexToPlay));
+    }
+
+    IEnumerator DestroyWhenParticleSystemDestroyed(int indexToPlay)
+    {
+        while (particleList[indexToPlay].particleSystem != null)
+            yield return null;
+        
+        Destroy(gameObject);
+    }
+
+    #region Validation/Checks
     void ValidateHasParent()
     {
         if (transform.parent == null)
@@ -83,4 +116,17 @@ public class ParticleManager : MonoBehaviour
         else
             return true;
     }
+
+    bool IsListElementMissingProperStopAction(int i)
+    {
+        if (particleList[i].actions != Particle.StopAction.Destroy)
+        {
+            Debug.LogWarning(name + " needs to have StopAction set to Destroy in " +
+                "order to run this function for element " + i + ".");
+            return false;
+        }
+        else
+            return true;
+    }
+    #endregion
 }
